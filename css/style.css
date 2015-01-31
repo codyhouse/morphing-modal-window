@@ -213,11 +213,11 @@ header h1 {
   white-space: nowrap;
   visibility: hidden;
   opacity: 0;
-  -webkit-transform: transateZ(0);
-  -moz-transform: transateZ(0);
-  -ms-transform: transateZ(0);
-  -o-transform: transateZ(0);
-  transform: transateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);

@@ -226,7 +226,7 @@ header {
 
 	visibility: hidden;
 	opacity: 0;
-	@include transform(transateZ(0));
+	@include transform(translateZ(0));
 	@include transform(scale(0));
 	@include transition(transform .3s 0s, visibility 0s .3s, opacity .3s 0s);
 
