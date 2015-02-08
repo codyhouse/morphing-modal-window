@@ -89,9 +89,10 @@ header h1 {
   height: 100%;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: visibility 0s 0.3s, opacity 0.3s 0s;
-  -moz-transition: visibility 0s 0.3s, opacity 0.3s 0s;
-  transition: visibility 0s 0.3s, opacity 0.3s 0s;
+  pointer-events: none;
+  -webkit-transition: visibility 0s 0.3s, opacity 0.3s 0s, z-index 0s 0.3s;
+  -moz-transition: visibility 0s 0.3s, opacity 0.3s 0s, z-index 0s 0.3s;
+  transition: visibility 0s 0.3s, opacity 0.3s 0s, z-index 0s 0.3s;
 }
 .cd-modal::after {
   /* gradient overlay at bottom of modal window */
@@ -112,7 +113,6 @@ header h1 {
   padding: 3em 5%;
   text-align: left;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -122,11 +122,16 @@ header h1 {
   margin: 2em 0;
 }
 .modal-is-visible .cd-modal {
+  z-index: 1;
   visibility: visible;
   opacity: 1;
-  -webkit-transition: visibility 0s 0s, opacity 0.3s 0s;
-  -moz-transition: visibility 0s 0s, opacity 0.3s 0s;
-  transition: visibility 0s 0s, opacity 0.3s 0s;
+  pointer-events: auto;
+  -webkit-transition: visibility 0s 0s, opacity 0.3s 0s, z-index 0s 0s;
+  -moz-transition: visibility 0s 0s, opacity 0.3s 0s, z-index 0s 0s;
+  transition: visibility 0s 0s, opacity 0.3s 0s, z-index 0s 0s;
+}
+.modal-is-visible .cd-modal .cd-modal-content {
+  -webkit-overflow-scrolling: touch;
 }
 @media only screen and (min-width: 768px) {
   .cd-modal .cd-modal-content {
@@ -173,6 +178,7 @@ header h1 {
 }
 .cd-modal-action .cd-modal-bg {
   position: absolute;
+  z-index: 1;
   left: 50%;
   top: 0;
   width: 4em;

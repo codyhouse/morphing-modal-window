@@ -101,8 +101,9 @@ header {
 
 	visibility: hidden;
 	opacity: 0;
+	pointer-events: none;
 
-	@include transition(visibility 0s .3s, opacity .3s 0s);
+	@include transition(visibility 0s .3s, opacity .3s 0s, z-index 0s .3s);
 
 	&::after {
 		/* gradient overlay at bottom of modal window */
@@ -123,7 +124,6 @@ header {
 		padding: 3em 5%;
 		text-align: left;
 		overflow-y: auto; 
-		-webkit-overflow-scrolling: touch;
 		@include font-smoothing; // see partials > mixins.scss
 	}
 
@@ -134,10 +134,16 @@ header {
 	}
 
 	.modal-is-visible & {
+		z-index: 1;
 		visibility: visible;
 		opacity: 1;
+		pointer-events: auto;
 		
-		@include transition(visibility 0s 0s, opacity .3s 0s);
+		@include transition(visibility 0s 0s, opacity .3s 0s, z-index 0s 0s);
+
+		.cd-modal-content {
+			-webkit-overflow-scrolling: touch;
+		}
 	}
 
 	@include MQ(M) {
@@ -190,6 +196,7 @@ header {
 
 	.cd-modal-bg {
 		position: absolute;
+		z-index: 1;
 		left: 50%;
     	top: 0;
 		width: 4em;
